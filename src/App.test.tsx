@@ -1,9 +1,11 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+test("url is correct", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const linkEl = screen.getByRole("link", {
+    name: /learn testing/i,
+  }) as HTMLLinkElement;
+  expect(linkEl.href).toMatch("ultimateqa.com");
 });
